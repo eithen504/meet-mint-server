@@ -1,13 +1,12 @@
 {
   "name": "meet--mint-server",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "start": "node dist/index",
+    "start": "node build/index",
     "build": "tsc -p .",
     "dev": "tsc-watch --onSuccess \"npm start\""
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
