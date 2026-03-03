@@ -20,6 +20,13 @@ app.use(json());
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "🚀 Server is running successfully!",
+  });
+});
+
 const startServer = async () => {
     try {
         await connectDB();
