@@ -2,10 +2,10 @@ import { Inngest } from "inngest";
 import { connectDB } from "./db.js";
 import User from "../models/user.model.js";
 
-export const inngest = new Inngest({ id: "talent-iq" });
+export const inngest = new Inngest({ id: "meet-mint" });
 
 const syncUser = inngest.createFunction(
-  { id: "meet-mint" },
+  { id: "sync-user" },
   { event: "clerk/user.created" },
   async ({ event }) => {
     await connectDB();
