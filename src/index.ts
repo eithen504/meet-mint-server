@@ -4,6 +4,8 @@ import cors from 'cors';
 import { connectDB } from './lib/db.js';
 import { serve } from "inngest/express";
 import { inngest, functions } from './lib/inngest.js';
+import { clerkMiddleware } from '@clerk/express';
+import chatRoutes from './routes/chat.route.js'
 
 dotenv.config();
 
@@ -18,7 +20,10 @@ app.use(cors({
 
 app.use(json());
 
+app.use(clerkMiddleware());
+
 app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use("/api/chat", chatRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).json({
@@ -27,7 +32,7 @@ app.get("/", (req, res) => {
   });
 });
 
-const startServer = async () => {
+const startServer = async () => {  
     try {
         await connectDB();
         app.listen(port, () => {
