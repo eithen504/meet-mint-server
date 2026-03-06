@@ -29,7 +29,6 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/session", sessionRoutes);
 app.use("/api/code", codeRoutes)
 
-
 const startServer = async () => {  
     try {
         await connectDB();

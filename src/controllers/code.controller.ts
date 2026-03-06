@@ -6,8 +6,10 @@ async function executeCode(req: Request, res: Response) {
   try {
     const { language, code } = req.body;
 
+    const API_URL = "https://api.paiza.io/runners/create";
+    
     // STEP 1: Create runner
-    const createRes = await fetch("https://api.paiza.io/runners/create", {
+    const createRes = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
