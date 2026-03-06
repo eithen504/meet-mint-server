@@ -29,9 +29,6 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/session", sessionRoutes);
 app.use("/api/code", codeRoutes)
 
-app.get("/", (req, res) => {
-  res.send("Server is running");
-});
 
 const startServer = async () => {  
     try {
