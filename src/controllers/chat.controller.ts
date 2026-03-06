@@ -1,7 +1,7 @@
 import { chatClient } from "../lib/stream.js";
 import { type Response, type Request } from "express";
 
-export async function getStreamToken(req: Request, res: Response) {
+async function getStreamToken(req: Request, res: Response) {
   try {
     if (!req.user) {
       return res.status(401).json({ message: "Unauthorized" });
@@ -22,4 +22,8 @@ export async function getStreamToken(req: Request, res: Response) {
     console.log("Error in getStreamToken controller:", error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
+}
+
+export {
+  getStreamToken
 }

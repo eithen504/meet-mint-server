@@ -56,6 +56,8 @@ async function createSession(req: Request, res: Response) {
 
 async function getActiveSessions(_: Request, res: Response) {
     try {
+        console.log("pppp");
+        
         const sessions = await Session.find({ status: "active" })
             .populate("host", "name profileImage email clerkId")
             .populate("participant", "name profileImage email clerkId")

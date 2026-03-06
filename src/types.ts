@@ -16,6 +16,8 @@ export type StreamUser = {
   image?: string;
 };
 
+export type Language = "javascript" | "python" | "java";
+
 declare global {
   namespace Express {
     interface Request {
